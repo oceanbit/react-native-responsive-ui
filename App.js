@@ -17,7 +17,7 @@ export default class App extends Component {
         Promise
             .all(Images.downloadAsync())
             .then(() => this.setState({ ready: true }))
-            .catch(error => console.log(error))
+            // .catch(error => console.log(error))
         ;
     }
 
