@@ -1,6 +1,7 @@
 // @flow
 import React, {Component} from "react";
 import {View, StyleSheet, Text} from "react-native";
+import {MediaQuery} from "../../lib";
 
 import {BackgroundImage, Images, Button} from "../components";
 import Mark from "./Mark";
@@ -10,7 +11,9 @@ export default class Login extends Component {
     render(): React$Element<*> {
         return <BackgroundImage source={Images.login}>
             <View style={style.container}>
-                <Mark />
+                <MediaQuery orientation="portrait">
+                    <Mark />
+                </MediaQuery>
                 <Field label="email" defaultValue="wcandillon@gmail.com" />
                 <Field label="password" secureTextEntry last />
                 <Button label="Login" />
