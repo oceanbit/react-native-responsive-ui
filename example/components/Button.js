@@ -6,14 +6,15 @@ export default class Button extends Component {
     props: {
         label: string,
         onPress?: () => void,
+        primary?: boolean,
         style?: StyleSheet.Styles | Array<StyleSheet.Styles>
     };
 
     render(): React$Element<*> {
-        const {onPress, style, label} = this.props;
+        const {onPress, style, label, primary} = this.props;
         return <TouchableHighlight
             {...{ onPress }}
-            style={[style, styles.container]}
+            style={[style, styles.container, { backgroundColor: primary ? "#6563a4" : "#d667cd" }]}
             activeOpacity={.5}
             underlayColor="rgba(255, 255, 255, .2)"
         >
@@ -24,7 +25,6 @@ export default class Button extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: "#6563a4",
         padding: 10,
         height: 55,
         justifyContent: "center",

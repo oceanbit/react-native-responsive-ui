@@ -16,12 +16,21 @@ export default class Login extends Component {
                 </MediaQuery>
                 <Field label="email" defaultValue="wcandillon@gmail.com" />
                 <Field label="password" secureTextEntry last />
-                <Button label="Login" />
+                <Button label="Login" primary />
+
+                <View style={{ flexDirection: "row", alignSelf: "stretch" }}>
+                    <View style={{ flex: 1 }}>
+                        <Button label="Login" primary />
+                    </View>
+                    <View style={{ flex: 1 }}>
+                        <Button label="Sign Up" />
+                    </View>
+                </View>
             </View>
         </BackgroundImage>;
     }
 }
-
+// { alignSelf: "stretch" }
 const style = StyleSheet.create({
     container: {
         flex: 1,
