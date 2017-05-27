@@ -11,13 +11,13 @@ import Login from "./example/login";
 
 export default class App extends Component {
 
-    state = { ready: false };
+    state = { ready: true };
 
     componentWillMount() {
         Promise
             .all(Images.downloadAsync())
             .then(() => this.setState({ ready: true }))
-            // .catch(error => console.log(error))
+            .catch(error => console.log(error))
         ;
     }
 

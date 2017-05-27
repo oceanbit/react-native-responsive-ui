@@ -2,9 +2,14 @@
 
 Building reponsive UIs in React Native.
 
-## What about the react-native-responsive package?
-While [react-native-responsive](https://github.com/adbayb/react-native-responsive) provides the right API, it doesn't listen to changes in the app window.
+## What about existing packages?
+
+* [react-native-responsive](https://github.com/adbayb/react-native-responsive): This library provides interesting APIs but it doesn't listen to changes in the app window.
 This is problematic when changing the orientation of the device or when splitting screens.
+
+* [react-native-responsive-styles](https://github.com/FormidableLabs/react-native-responsive-styles): This is a great library but it contains native depencies which prevents you to use it with expo for instance.
+  
+## What about the react-native-responsive package?
 
 ## Installation
 
