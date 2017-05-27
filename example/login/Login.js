@@ -11,7 +11,7 @@ export default class Login extends Component {
     render(): React$Element<*> {
         return <BackgroundImage source={Images.login}>
             <View style={style.container}>
-                <MediaQuery orientation="portrait">
+                <MediaQuery minHeight={450}>
                     <Mark />
                 </MediaQuery>
                 <Field label="email" defaultValue="wcandillon@gmail.com" />
