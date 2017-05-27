@@ -1,22 +1,29 @@
 // @flow
 import React, {Component} from "react";
-import {View, StyleSheet} from "react-native";
+import {View, StyleSheet, Text} from "react-native";
 
-import {BackgroundImage, Images} from "../components";
+import {BackgroundImage, Images, Button} from "../components";
+import Mark from "./Mark";
+import Field from "./Field";
 
 export default class Login extends Component {
     render(): React$Element<*> {
         return <BackgroundImage source={Images.login}>
-            <View style={style.mask}>
-
+            <View style={style.container}>
+                <Mark />
+                <Field label="email" defaultValue="wcandillon@gmail.com" />
+                <Field label="password" secureTextEntry last />
+                <Button label="Login" />
             </View>
         </BackgroundImage>;
     }
 }
 
 const style = StyleSheet.create({
-    mask: {
+    container: {
         flex: 1,
-        backgroundColor: "rgba(80, 210, 194, .8)"
+        backgroundColor: "rgba(80, 210, 194, .8)",
+        justifyContent: "center",
+        alignItems: "center"
     }
 });
