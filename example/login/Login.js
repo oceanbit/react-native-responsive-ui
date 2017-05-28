@@ -9,13 +9,24 @@ import Field from "./Field";
 
 export default class Login extends ResponsiveComponent {
     render(): React$Element<*> {
-        const style = {
-            container: {
-                flex: 1,
-                backgroundColor: "rgba(80, 210, 194, .8)",
-                justifyContent: "center",
-                alignItems: "center"
-            },
+        const style = this.getStyle();
+        return <BackgroundImage source={Images.login}>
+            <View style={mainStyle.container}>
+                <MediaQuery orientation="portrait">
+                    <Mark />
+                </MediaQuery>
+                <Field label="email" defaultValue="wcandillon@gmail.com" />
+                <Field label="password" defaultValue="foobar" secureTextEntry last />
+                <View style={style.btns}>
+                    <Button label="Login" primary style={style.btn} />
+                    <Button label="Sign Up" style={style.btn} />
+                </View>
+            </View>
+        </BackgroundImage>;
+    }
+
+    getStyle() {
+        return {
             ...MediaQueryStyleSheet.create({
                 btns: {
                     flexDirection: "row"
@@ -33,19 +44,14 @@ export default class Login extends ResponsiveComponent {
                 }
             }, { orientation: "portrait" })
         };
-        console.log(style);
-        return <BackgroundImage source={Images.login}>
-            <View style={style.container}>
-                <MediaQuery orientation="portrait">
-                    <Mark />
-                </MediaQuery>
-                <Field label="email" defaultValue="wcandillon@gmail.com" />
-                <Field label="password" defaultValue="foobar" secureTextEntry last />
-                <View style={style.btns}>
-                    <Button label="Login" primary style={style.btn} />
-                    <Button label="Sign Up" style={style.btn} />
-                </View>
-            </View>
-        </BackgroundImage>;
     }
 }
+
+const mainStyle = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: "rgba(80, 210, 194, .8)",
+        justifyContent: "center",
+        alignItems: "center"
+    }
+});
