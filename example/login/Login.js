@@ -9,10 +9,11 @@ import Field from "./Field";
 
 export default class Login extends ResponsiveComponent {
     render(): React$Element<*> {
+        // const {navigation} = this.props;
         const style = this.getStyle();
         return <BackgroundImage source={Images.login}>
             <View style={mainStyle.container}>
-                <MediaQuery orientation="portrait">
+                <MediaQuery minHeight={450}>
                     <Mark />
                 </MediaQuery>
                 <Field label="email" defaultValue="wcandillon@gmail.com" />

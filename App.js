@@ -11,7 +11,7 @@ import Login from "./example/login";
 
 export default class App extends Component {
 
-    state = { ready: true };
+    state = { ready: false };
 
     componentWillMount() {
         Promise
