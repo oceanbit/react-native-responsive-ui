@@ -1,6 +1,7 @@
 # React Native Reponsive UI
 
-[![CircleCI](https://circleci.com/gh/wcandillon/react-native-responsive-ui.svg?style=svg)](https://circleci.com/gh/wcandillon/react-native-responsive-ui) [![npm version](https://badge.fury.io/js/react-native-responsive-ui.svg)](https://badge.fury.io/js/react-native-responsive-ui)
+[![CircleCI](https://circleci.com/gh/wcandillon/react-native-responsive-ui.svg?style=svg)](https://circleci.com/gh/wcandillon/react-native-responsive-ui)
+[![npm version](https://badge.fury.io/js/react-native-responsive-ui.svg)](https://badge.fury.io/js/react-native-responsive-ui)
 
 
 Building reponsive UIs in React Native.
