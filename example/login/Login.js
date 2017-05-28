@@ -45,7 +45,7 @@ export default class Login extends ResponsiveComponent {
                         alignSelf: "stretch"
                     },
                     btn: {
-                        flex: 1
+                        flex: 0
                     }
                 }
             }
