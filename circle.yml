@@ -14,3 +14,8 @@ test:
     - yarn lint
     - yarn flow
     - yarn test
+deployment:
+  release:
+    branch: master
+    commands:
+        - npm run release || true

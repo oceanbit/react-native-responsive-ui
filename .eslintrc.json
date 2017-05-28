@@ -12,6 +12,7 @@
         "es6": true
     },
     "rules": {
+        "no-console": 0,
         "max-len": ["error", 120],
         "quotes": ["error", "double", { "avoidEscape": true }],
         "no-trailing-spaces": 2,

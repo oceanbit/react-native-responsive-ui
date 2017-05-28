@@ -33,6 +33,8 @@
 .*/node_modules/react-native-easy-grid/*
 .*/node_modules/react-static-container/*
 .*/node_modules/react-native-keyboard-aware-scroll-view/*
+.*/node_modules/config-chain/test/broken.json
+.*/node_modules/npmconf/test/.*
 .*/__tests__/.*
 .*/documentation/.*
 
