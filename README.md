@@ -2,7 +2,7 @@
 
 Building reponsive UIs in React Native.
 
-![https://firebasestorage.googleapis.com/v0/b/react-native-ui-kits.appspot.com/o/images%2Fexample.gif?alt=media&token=d80f2669-8223-437e-b5ac-4073e39cda98](example)
+![example](https://firebasestorage.googleapis.com/v0/b/react-native-ui-kits.appspot.com/o/images%2Fexample.gif?alt=media&token=d80f2669-8223-437e-b5ac-4073e39cda98)
 
 ## What about existing packages?
 
@@ -21,9 +21,31 @@ npm install react-native-responsive-ui --save
 
 ## Usage
 
-### Responsive Component
+### Media Queries
 
 ```jsx
+// @flow
+import React, {Component} from "react";
+import {MediaQuery, MediaQueryStyleSheet, ResponsiveComponent} from "react-native-responsive-ui";
+
+export default class Login extends Component {
+    render(): React$Element<*> {
+        const style = this.getStyle();
+        return <BackgroundImage source={Images.login}>
+            <View style={mainStyle.container}>
+                <MediaQuery minHeight={450}>
+                    <Mark />
+                </MediaQuery>
+                <Field label="email" />
+                <Field label="password" secureTextEntry last />
+                <View >
+                    <Button label="Login" />
+                    <Button label="Sign Up" />
+                </View>
+            </View>
+        </BackgroundImage>;
+    }
+}
 
 ```
 
@@ -44,4 +66,6 @@ npm install react-native-responsive-ui --save
 | condition      | boolean | Abritrary boolean value that must be true for the media query to pass. |
 
 
-### Media Queries
+### Responsive Component
+
+### Responsive StyleSheet
