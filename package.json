@@ -48,7 +48,7 @@
     "jest": {
         "preset": "jest-expo",
         "transformIgnorePatterns": [
-            "node_modules/(?!react-native|react-navigation|expo|native-base-shoutem-theme|@shoutem|react-clone-referenced-element)"
+            "node_modules/(?!react-native|react-navigation|expo|@expo|native-base-shoutem-theme|@shoutem|react-clone-referenced-element)"
         ],
         "testResultsProcessor": "./node_modules/jest-junit-reporter"
     },
