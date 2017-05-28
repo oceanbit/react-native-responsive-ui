@@ -1,5 +1,5 @@
 // @flow
-import React, {Component} from "react";
+import React from "react";
 import {View, StyleSheet} from "react-native";
 import {MediaQuery, MediaQueryStyleSheet, ResponsiveComponent} from "../../lib";
 
@@ -25,7 +25,7 @@ export default class Login extends ResponsiveComponent {
         </BackgroundImage>;
     }
 
-    getStyle() {
+    getStyle(): StyleSheet.Styles {
         return MediaQueryStyleSheet.select([
             {
                 query: { orientation: "landscape" },
