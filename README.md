@@ -8,6 +8,8 @@ Building responsive UIs in React Native.
 
 ![example](https://raw.githubusercontent.com/wcandillon/react-native-responsive-ui/4637085802323386110a6352929147d11e1ca83c/example/components/images/example.gif)
 
+An example is available via expo [here](https://expo.io/@wcandillon/react-native-responsive-ui).
+
 ## What about existing packages?
 
 * [react-native-responsive](https://github.com/adbayb/react-native-responsive): This library provides interesting APIs but it doesn't listen to changes in the app window.
@@ -20,8 +22,6 @@ This is problematic when changing the orientation of the device or when splittin
 ```bash
 npm install react-native-responsive-ui --save
 ```
-
-An example is available via expo [here](https://expo.io/@wcandillon/react-native-responsive-ui).
 
 ## Usage
 
