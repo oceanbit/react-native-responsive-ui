@@ -2,7 +2,7 @@
 
 Building reponsive UIs in React Native.
 
-![example](https://firebasestorage.googleapis.com/v0/b/react-native-ui-kits.appspot.com/o/images%2Fexample.gif?alt=media&token=d80f2669-8223-437e-b5ac-4073e39cda98)
+![example](https://raw.githubusercontent.com/wcandillon/react-native-responsive-ui/4637085802323386110a6352929147d11e1ca83c/example/components/images/example.gif)
 
 ## What about existing packages?
 
