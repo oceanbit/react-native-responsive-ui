@@ -26,24 +26,30 @@ export default class Login extends ResponsiveComponent {
     }
 
     getStyle() {
-        return {
-            ...MediaQueryStyleSheet.create({
-                btns: {
-                    flexDirection: "row"
-                },
-                btn: {
-                    flex: 1
+        return MediaQueryStyleSheet.select([
+            {
+                query: { orientation: "landscape" },
+                style: {
+                    btns: {
+                        flexDirection: "row"
+                    },
+                    btn: {
+                        flex: 1
+                    }
                 }
-            }, { orientation: "landscape" }),
-            ...MediaQueryStyleSheet.create({
-                btns: {
-                    alignSelf: "stretch"
-                },
-                btn: {
-                    flex: 0
+            },
+            {
+                query: { orientation: "portrait" },
+                style: {
+                    btns: {
+                        alignSelf: "stretch"
+                    },
+                    btn: {
+                        flex: 1
+                    }
                 }
-            }, { orientation: "portrait" })
-        };
+            }
+        ]);
     }
 }
 
