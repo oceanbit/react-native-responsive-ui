@@ -1,8 +1,14 @@
 {
     "name": "react-native-responsive-ui",
-    "version": "0.0.1",
+    "version": "0.0.0-development",
     "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
     "description": "Media Queries for React Native",
+    "author": "William Candillon <wcandillon@gmail.com>",
+    "license": "Apache-2.0",
+    "bugs": {
+        "url": "https://github.com/wcandillon/react-native-responsive-ui/issues"
+    },
+    "homepage": "https://github.com/wcandillon/react-native-responsive-ui#readme",
     "keywords": [
         "react",
         "react-native",
@@ -15,6 +21,7 @@
     "devDependencies": {
         "autobind-decorator": "^1.4.1",
         "babel-eslint": "^7.2.3",
+        "condition-circle": "^1.5.0",
         "eslint": "^3.19.0",
         "eslint-config-google": "^0.7.1",
         "eslint-plugin-flowtype": "^2.32.1",
@@ -24,7 +31,8 @@
         "jest-expo": "^0.4.0",
         "react-native-scripts": "0.0.28",
         "react-navigation": "^1.0.0-beta.11",
-        "react-test-renderer": "16.0.0-alpha.6"
+        "react-test-renderer": "16.0.0-alpha.6",
+        "semantic-release": "^6.3.6"
     },
     "scripts": {
         "start": "react-native-scripts start",
@@ -34,7 +42,8 @@
         "test": "node node_modules/jest/bin/jest.js",
         "test:watch": "node node_modules/jest/bin/jest.js --watch",
         "flow": "flow",
-        "lint": "eslint App.js App.test.js example/ lib/"
+        "lint": "eslint App.js App.test.js example/ lib/",
+        "release": "semantic-release pre && npm publish && semantic-release post"
     },
     "jest": {
         "preset": "jest-expo",
@@ -50,5 +59,8 @@
         "lodash": "^4.17.4",
         "react": "16.0.0-alpha.6",
         "react-native": "^0.43.4"
+    },
+    "release": {
+        "verifyConditions": "condition-circle"
     }
 }
