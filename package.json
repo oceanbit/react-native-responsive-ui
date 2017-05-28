@@ -1,10 +1,14 @@
 {
     "name": "react-native-responsive-ui",
     "version": "0.0.0-development",
-    "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
-    "description": "Media Queries for React Native",
+    "main": "lib/index.js",
+    "description": "Responsive UIs for React Native",
     "author": "William Candillon <wcandillon@gmail.com>",
     "license": "Apache-2.0",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/wcandillon/react-native-responsive-ui.git"
+    },
     "bugs": {
         "url": "https://github.com/wcandillon/react-native-responsive-ui/issues"
     },
