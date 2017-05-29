@@ -1,6 +1,7 @@
 {
     "expo": {
         "sdkVersion": "16.0.0",
-        "privacy": "public"
+        "privacy": "public",
+	"entryPoint": "./node_modules/react-native-scripts/build/bin/crna-entry.js"
     }
 }
