@@ -39,7 +39,7 @@
         "semantic-release": "^6.3.6",
         "@expo/vector-icons": "^4.0.0",
         "expo": "^16.0.0",
-        "jest-junit-reporter": "^1.1.0",
+        "jest-junit-reporter": "^1.1.0"
     },
     "scripts": {
         "start": "react-native-scripts start",
