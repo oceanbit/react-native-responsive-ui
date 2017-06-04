@@ -36,7 +36,10 @@
         "react-native-scripts": "0.0.28",
         "react-navigation": "^1.0.0-beta.11",
         "react-test-renderer": "16.0.0-alpha.6",
-        "semantic-release": "^6.3.6"
+        "semantic-release": "^6.3.6",
+        "@expo/vector-icons": "^4.0.0",
+        "expo": "^16.0.0",
+        "jest-junit-reporter": "^1.1.0"
     },
     "scripts": {
         "start": "react-native-scripts start",
@@ -57,9 +60,6 @@
         "testResultsProcessor": "./node_modules/jest-junit-reporter"
     },
     "dependencies": {
-        "@expo/vector-icons": "^4.0.0",
-        "expo": "^16.0.0",
-        "jest-junit-reporter": "^1.1.0",
         "lodash": "^4.17.4",
         "react": "16.0.0-alpha.6",
         "react-native": "^0.43.4"
