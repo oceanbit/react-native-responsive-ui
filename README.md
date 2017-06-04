@@ -83,6 +83,25 @@ export default class Debug extends ResponsiveComponent {
 }
 ```
 
+### withWindow
+
+`withWindow` is a higher order component that will wrap your component and provide the window dimensions as props.
+
+```jsx
+import React from "react";
+import {withWindow} from "react-native-responsive-ui";
+
+class Debug extends React.Component {
+    render() {
+        const {width, height} = this.props.window;
+        console.log(`New window dimensions: ${width}x${height}`);
+        return null;
+    }
+}
+
+export default withWindow(Debug);
+```
+
 ### ResponsiveStyleSheet
 
 `ResponsiveStyleSheet` returns a stylesheet given multiple media queries.
