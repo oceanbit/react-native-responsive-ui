@@ -66,15 +66,16 @@ export default class Login extends Component {
 | condition      | boolean | Abritrary boolean value that must be true for the media query to pass. |
 
 
-### ResponsiveComponent
+### Responsive Annotation
 
-`ResponsiveComponents` extends `React.Component` and add the window dimensions to the state of the component.
+You can use es7 annotation in order to listen for dimension changes in a React component.
 
 ```jsx
 import React from "react";
-import {ResponsiveComponent} from "react-native-responsive-ui";
+import {responsive} from "react-native-responsive-ui";
 
-export default class Debug extends ResponsiveComponent {
+@responsive
+export default class Debug extends React.Component {
     render() {
         const {width, height} = this.state.window;
         console.log(`New window dimensions: ${width}x${height}`);
@@ -82,6 +83,24 @@ export default class Debug extends ResponsiveComponent {
     }
 }
 ```
+
+Or without the decorator syntax:
+
+```jsx
+import React from "react";
+import {responsive} from "react-native-responsive-ui";
+
+class Debug extends React.Component {
+    render() {
+        const {width, height} = this.state.window;
+        console.log(`New window dimensions: ${width}x${height}`);
+        return null;
+    }
+}
+
+export default responsive(Debug);
+```
+
 
 ### ResponsiveStyleSheet
 
@@ -142,4 +161,22 @@ import {Device, MediaQuerySelector} from "react-native-responsive-ui";
 
 const {width, height} = Device.dimensions.window;
 MediaQuerySelector.query({ orientation: "portrait", minHeight: 450 }, width, height)
+```
+
+
+### ResponsiveComponent
+
+`ResponsiveComponents` extends `React.Component` and add the window dimensions to the state of the component.
+
+```jsx
+import React from "react";
+import {ResponsiveComponent} from "react-native-responsive-ui";
+
+export default class Debug extends ResponsiveComponent {
+    render() {
+        const {width, height} = this.state.window;
+        console.log(`New window dimensions: ${width}x${height}`);
+        return null;
+    }
+}
 ```

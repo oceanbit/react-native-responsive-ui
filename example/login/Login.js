@@ -1,13 +1,14 @@
 // @flow
 import React from "react";
 import {View, StyleSheet} from "react-native";
-import {MediaQuery, ResponsiveStyleSheet, ResponsiveComponent} from "../../lib";
+import {MediaQuery, ResponsiveStyleSheet, responsive} from "../../lib";
 
 import {BackgroundImage, Images, Button} from "../components";
 import Mark from "./Mark";
 import Field from "./Field";
 
-export default class Login extends ResponsiveComponent {
+@responsive
+export default class Login extends React.Component {
     render(): React$Element<*> {
         // const {navigation} = this.props;
         const style = this.getStyle();
