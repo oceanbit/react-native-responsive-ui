@@ -77,7 +77,7 @@ import {responsive} from "react-native-responsive-ui";
 @responsive
 export default class Debug extends React.Component {
     render() {
-        const {width, height} = this.state.window;
+        const {width, height} = this.props.window;
         console.log(`New window dimensions: ${width}x${height}`);
         return null;
     }
