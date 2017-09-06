@@ -38,13 +38,19 @@
 .*/__tests__/.*
 .*/documentation/.*
 
+; Ignore React Navigation
+.*/node_modules/react-navigation/*
+
+; Ignore React Native
+.*/node_modules/react-native/*/*
+
 [include]
 
 [libs]
 node_modules/react-native/Libraries/react-native/react-native-interface.js
 node_modules/react-native/flow
 flow/
-#node_modules/react-navigation/src/TypeDefinition.js
+;node_modules/react-navigation/src/TypeDefinition.js
 
 [options]
 module.system=haste
