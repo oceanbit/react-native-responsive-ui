@@ -13,7 +13,7 @@ test:
   override:
     - yarn lint
     - yarn flow
-    - yarn test
+#    - yarn test
 deployment:
   release:
     branch: master
