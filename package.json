@@ -33,8 +33,6 @@
         "exp": "^40.0.2",
         "flow-bin": "^0.40.0",
         "jest-expo": "^0.4.0",
-        "react": "16.0.0-alpha.6",
-        "react-native": "^0.43.4",
         "react-native-scripts": "0.0.28",
         "react-navigation": "^1.0.0-beta.11",
         "react-test-renderer": "16.0.0-alpha.6",
