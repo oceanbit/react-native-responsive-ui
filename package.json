@@ -60,8 +60,10 @@
         "testResultsProcessor": "./node_modules/jest-junit-reporter"
     },
     "dependencies": {
-        "lodash": "^4.17.4",
-        "react": "16.0.0-alpha.6",
+        "lodash": "^4.17.4"
+    },
+    "peerDependencies": {
+        "react": "^16.0.0-alpha.6",
         "react-native": "^0.43.4"
     },
     "release": {
