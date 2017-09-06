@@ -3,7 +3,6 @@
 [![CircleCI](https://circleci.com/gh/wcandillon/react-native-responsive-ui.svg?style=svg)](https://circleci.com/gh/wcandillon/react-native-responsive-ui)
 [![npm version](https://badge.fury.io/js/react-native-responsive-ui.svg)](https://badge.fury.io/js/react-native-responsive-ui)
 
-
 Building responsive UIs in React Native.
 
 ![example](https://raw.githubusercontent.com/wcandillon/react-native-responsive-ui/4637085802323386110a6352929147d11e1ca83c/example/components/images/example.gif)
