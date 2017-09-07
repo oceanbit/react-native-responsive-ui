@@ -56,7 +56,7 @@ export default class Login extends Component {
 | minHeight      | dp     | Minimum height of the window.                                                        |
 | maxHeight      | dp     | Maximum height of the window.                                                        |
 | minWidth       | dp     | Minimum width of the window.                                                         |
-| maxHeight      | dp     | Maximum height of the window.                                                        |
+| maxWidth       | dp     | Maximum width of the window.                                                         |
 | minAspectRatio | number | Minimum aspect ration of the window (ratio of horizontal pixels to vertical pixels). |
 | maxAspectRatio | number | Maximum aspect ration of the window (ratio of horizontal pixels to vertical pixels). |
 | minPixelRatio  | number | Minimum device pixel density. See [PixelRatio](https://facebook.github.io/react-native/docs/pixelratio.html). |
