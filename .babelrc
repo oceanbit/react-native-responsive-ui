@@ -1,6 +1,6 @@
 {
     "presets": [
-        "babel-preset-expo"
+        "react-native"
     ],
     "env": {
         "development": {
