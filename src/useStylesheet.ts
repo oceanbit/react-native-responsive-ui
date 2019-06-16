@@ -1,12 +1,12 @@
 // @flow
 import * as _ from "lodash";
 import { ViewStyle, TextStyle, ImageStyle } from "react-native";
-import mediaQuery, { MediaQuery } from "./mediaQuery";
+import { mediaQuery, IMediaQuery } from "./MediaQuery";
 import useDimensions from "./useDimensions";
 
 type NamedStyles<T> = { [P in keyof T]: ViewStyle | TextStyle | ImageStyle };
 type MediaQueryStyle<T> = {
-  query: MediaQuery;
+  query: IMediaQuery;
   style: NamedStyles<T>;
 };
 
