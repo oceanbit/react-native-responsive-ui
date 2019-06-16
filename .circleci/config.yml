@@ -1,7 +1,3 @@
-# Javascript Node CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-javascript/ for more details
-#
 version: 2
 jobs:
   build:
@@ -27,6 +23,7 @@ jobs:
           - v1-dependencies-
 
       - run: yarn install
+      - run: yarn prepare
 
       - save_cache:
           paths:
@@ -34,11 +31,5 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
         
       # run tests!
-      - run: yarn test
-
-      - deploy:
-          name: NPM Deployment
-          command: |
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-                yarn semantic-release
-            fi
+      - run: yarn lint
+      - run: yarn tsc
