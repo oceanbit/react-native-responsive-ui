@@ -10,13 +10,6 @@ Building responsive UIs in React Native.
 
 An example is available via expo [here](https://expo.io/@wcandillon/react-native-responsive-ui).
 
-## What about existing packages?
-
-* [react-native-responsive](https://github.com/adbayb/react-native-responsive): This library provides interesting APIs but it doesn't listen to changes in the app window.
-This is problematic when changing the orientation of the device or when splitting screens.
-
-* [react-native-responsive-styles](https://github.com/FormidableLabs/react-native-responsive-styles): This is a great library but it contains a native depency which prevents you to use it with expo for instance.
-
 ## Installation
 
 ```bash
@@ -66,117 +59,69 @@ export default class Login extends Component {
 | condition      | boolean | Abritrary boolean value that must be true for the media query to pass. |
 
 
-### Responsive Annotation
-
-You can use es7 annotation in order to listen for dimension changes in a React component.
+### useDimensions
 
 ```jsx
 import React from "react";
-import {responsive} from "react-native-responsive-ui";
+import {useDimensions} from "react-native-responsive-ui";
 
-@responsive
-export default class Debug extends React.Component {
-    render() {
-        const {width, height} = this.props.window;
-        console.log(`New window dimensions: ${width}x${height}`);
-        return null;
-    }
-}
+export default ({ children }) =>  {
+  const {width, height} = useDimensions();
+  console.log(`New window dimensions: ${width}x${height}`);
+  return children;
+};
 ```
 
-Or without the decorator syntax:
+### useStyle
 
 ```jsx
 import React from "react";
-import {responsive} from "react-native-responsive-ui";
-
-class Debug extends React.Component {
-    render() {
-        const {width, height} = this.state.window;
-        console.log(`New window dimensions: ${width}x${height}`);
-        return null;
-    }
-}
-
-export default responsive(Debug);
-```
-
-
-### ResponsiveStyleSheet
-
-`ResponsiveStyleSheet` returns a stylesheet given multiple media queries.
-Unlike `Stylesheet` from React Native, you need to invoke this method from the `render()` method since it will be invoked for each dimension change.
-In order to re-render the component for each dimension change, you need to extends `ResponsiveComponent`.
-See example below.
-
-```jsx
-import React from "react";
-import {ResponsiveComponent, ResponsiveStyleSheet} from "react-native-responsive-ui";
+import {useStyle} from "react-native-responsive-ui";
 
 export default class Buttons extends ResponsiveComponent {
     render() {
-        const {style} = this;
+        const style = useStyle(staticStyle)
         return <View style={style.btns}>
             <Button label="Login" primary style={style.btn} />
             <Button label="Sign Up" style={style.btn} />
         </View>;
     }
-    
-    get style() {
-        return ResponsiveStyleSheet.select([
-        {
-            query: { orientation: "landscape" },
-            style: {
-                btns: {
-                    flexDirection: "row"
-                },
-                btn: {
-                    flex: 1
-                }
-            }
-        },
-        {
-            query: { orientation: "portrait" },
-            style: {
-                btns: {
-                    alignSelf: "stretch"
-                },
-                btn: {
-                    flex: 0
-                }
-            }
-        }
-        ]);
-    }
 }
+
+const staticStyle = [
+  {
+      query: { orientation: "landscape" },
+      style: {
+          btns: {
+              flexDirection: "row"
+          },
+          btn: {
+              flex: 1
+          }
+      }
+  },
+  {
+      query: { orientation: "portrait" },
+      style: {
+          btns: {
+              alignSelf: "stretch"
+          },
+          btn: {
+              flex: 0
+          }
+      }
+  }
+];
 ```
 
-### MediaQuerySelector
+### Media Query
 
-`MediaQuerySelector` evaluates a media query and return true or false.
+`mediaQuery()` evaluates a media query and return true or false.
 See example below.
 
 ```jsx
-import {Device, MediaQuerySelector} from "react-native-responsive-ui";
+import {mediaQuery, useDimensions} from "react-native-responsive-ui";
 
-const {width, height} = Device.dimensions.window;
-MediaQuerySelector.query({ orientation: "portrait", minHeight: 450 }, width, height)
-```
-
-
-### ResponsiveComponent
-
-`ResponsiveComponents` extends `React.Component` and add the window dimensions to the state of the component.
-
-```jsx
-import React from "react";
-import {ResponsiveComponent} from "react-native-responsive-ui";
-
-export default class Debug extends ResponsiveComponent {
-    render() {
-        const {width, height} = this.state.window;
-        console.log(`New window dimensions: ${width}x${height}`);
-        return null;
-    }
-}
+const {width, height} = useDimensions();
+mediaQuery({ orientation: "portrait", minHeight: 450 }, width, height)
 ```
