@@ -1,72 +1,43 @@
 {
-    "name": "react-native-responsive-ui",
-    "version": "0.0.0-development",
-    "main": "lib/index.js",
-    "description": "Responsive UIs for React Native",
-    "author": "William Candillon <wcandillon@gmail.com>",
-    "license": "Apache-2.0",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/wcandillon/react-native-responsive-ui.git"
-    },
-    "bugs": {
-        "url": "https://github.com/wcandillon/react-native-responsive-ui/issues"
-    },
-    "homepage": "https://github.com/wcandillon/react-native-responsive-ui#readme",
-    "keywords": [
-        "react",
-        "react-native",
-        "responsive",
-        "responsive",
-        "design",
-        "media-query",
-        "media"
-    ],
-    "devDependencies": {
-        "autobind-decorator": "^1.4.1",
-        "babel-eslint": "^7.2.3",
-        "condition-circle": "^1.5.0",
-        "eslint": "^3.19.0",
-        "eslint-config-google": "^0.7.1",
-        "eslint-plugin-flowtype": "^2.32.1",
-        "eslint-plugin-react": "^6.10.3",
-        "exp": "^40.0.2",
-        "flow-bin": "^0.40.0",
-        "jest-expo": "^0.4.0",
-        "react-native-scripts": "0.0.28",
-        "react-navigation": "^1.0.0-beta.11",
-        "react-test-renderer": "16.0.0-alpha.6",
-        "semantic-release": "^6.3.6",
-        "@expo/vector-icons": "^4.0.0",
-        "expo": "^16.0.0",
-        "jest-junit-reporter": "^1.1.0"
-    },
-    "scripts": {
-        "start": "react-native-scripts start",
-        "eject": "react-native-scripts eject",
-        "android": "react-native-scripts android",
-        "ios": "react-native-scripts ios",
-        "test": "node node_modules/jest/bin/jest.js",
-        "test:watch": "node node_modules/jest/bin/jest.js --watch",
-        "flow": "flow",
-        "lint": "eslint App.js App.test.js example/ lib/",
-        "release": "semantic-release pre && npm publish && semantic-release post"
-    },
-    "jest": {
-        "preset": "jest-expo",
-        "transformIgnorePatterns": [
-            "node_modules/(?!react-native|react-navigation|expo|@expo|native-base-shoutem-theme|@shoutem|react-clone-referenced-element)"
-        ],
-        "testResultsProcessor": "./node_modules/jest-junit-reporter"
-    },
-    "dependencies": {
-        "lodash": "^4.17.4"
-    },
-    "peerDependencies": {
-        "react": ">=16.0.0",
-        "react-native": ">=0.43.4"
-    },
-    "release": {
-        "verifyConditions": "condition-circle"
-    }
+  "name": "react-native-responsive-ui",
+  "version": "2.0.0",
+  "description": "Responsive UIs for React Native",
+  "main": "dist/src/index.js",
+  "repository": "https://github.com/wcandillon/react-native-responsive-ui",
+  "author": "William Candillon <wcandillon@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "react-native": "src/index.ts",
+  "types": "dist/typescript/src/index.d.ts",
+  "scripts": {
+    "prepare": "bob build",
+    "lint": "eslint src/**/*",
+    "tsc": "tsc --noEmit"
+  },
+  "files": [
+    "src",
+    "dist"
+  ],
+  "@react-native-community/bob": {
+    "source": "src",
+    "output": "dist",
+    "targets": [
+      "typescript"
+    ]
+  },
+  "peerDependencies": {
+    "react": ">=16.8.3",
+    "react-native": "*"
+  },
+  "devDependencies": {
+    "@react-native-community/bob": "^0.4.1",
+    "@types/lodash": "^4.14.134",
+    "@types/react": "^16.8.20",
+    "@types/react-native": "^0.57.63",
+    "eslint": "^5.16.0",
+    "eslint-config-react-native-wcandillon": "^1.2.2"
+  },
+  "dependencies": {
+    "lodash": "^4.17.11"
+  }
 }
