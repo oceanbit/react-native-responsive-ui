@@ -72,15 +72,15 @@ export default ({ children }) =>  {
 };
 ```
 
-### useStyle
+### useStylesheet
 
 ```jsx
 import React from "react";
-import {useStyle} from "react-native-responsive-ui";
+import {useStylesheet} from "react-native-responsive-ui";
 
 export default class Buttons extends ResponsiveComponent {
     render() {
-        const style = useStyle(staticStyle)
+        const style = useStylesheet(staticStyle)
         return <View style={style.btns}>
             <Button label="Login" primary style={style.btn} />
             <Button label="Sign Up" style={style.btn} />
