@@ -1,3 +1,3 @@
 export { default as useDimensions } from "./useDimensions";
 export { default as useStylesheet } from "./useStylesheet";
-export { default as mediaQuery, IMediaQuery } from "./MediaQuery";
+export { default as MediaQuery, IMediaQuery, mediaQuery } from "./MediaQuery";
