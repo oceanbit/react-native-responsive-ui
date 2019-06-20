@@ -93,11 +93,11 @@ export default ({ children }) =>  {
   const styles = getStyle(dimensions.get("window"), cond => ({
     container: {
         flex: 1,
-        cond(
+        ...cond(
             { orientation: "landscape" },
             { flexDirection: "row" }
         ),
-        cond(
+        ...cond(
             { orientation: "portrait" },
             { flexDirection: "column" }
         ),
