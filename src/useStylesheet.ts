@@ -10,8 +10,10 @@ type MediaQueryStyle<T> = {
   style: NamedStyles<T>;
 };
 
-const useStylesheet = <T extends {}>(styles: MediaQueryStyle<T>[]) => {
-  const { width, height } = useDimensions();
+export const getStylesheet = <T extends {}>(
+  { width, height }: { width: number; height: number },
+  styles: MediaQueryStyle<T>[]
+) => {
   const selectedStyles: NamedStyles<T>[] = [];
   styles.forEach(style =>
     mediaQuery(style.query, width, height)
@@ -22,6 +24,11 @@ const useStylesheet = <T extends {}>(styles: MediaQueryStyle<T>[]) => {
     null,
     selectedStyles
   );
+};
+
+export const useStylesheet = <T extends {}>(styles: MediaQueryStyle<T>[]) => {
+  const dimensions = useDimensions();
+  return getStylesheet(dimensions, styles);
 };
 
 export default useStylesheet;

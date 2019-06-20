@@ -125,3 +125,35 @@ import {mediaQuery, useDimensions} from "react-native-responsive-ui";
 const {width, height} = useDimensions();
 mediaQuery({ orientation: "portrait", minHeight: 450 }, width, height)
 ```
+
+### ResponsiveComponent
+
+`ResponsiveComponents` extends `React.Component` and add the window dimensions to the state of the component.
+
+```jsx
+import React from "react";
+import {ResponsiveComponent} from "react-native-responsive-ui";
+
+export default class Debug extends ResponsiveComponent {
+    render() {
+        const {width, height} = this.state.window;
+        console.log(`New window dimensions: ${width}x${height}`);
+        return null;
+    }
+}
+```
+
+### getStyleSheet
+
+```jsx
+import React from "react";
+import {ResponsiveComponent, getStyleSheet} from "react-native-responsive-ui";
+
+export default class Debug extends ResponsiveComponent {
+    render() {
+        const {width, height} = this.state.window;
+        const style = getStyleSheet({width, height})
+        return <View style={style.container} />
+    }
+}
+```
