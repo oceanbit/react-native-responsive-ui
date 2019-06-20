@@ -57,6 +57,57 @@ export default class Login extends Component {
 | platform       | string | Platform of the device.  See [Platform](https://facebook.github.io/react-native/docs/platform-specific-code.html#platform-module). |
 | condition      | boolean | Abritrary boolean value that must be true for the media query to pass. |
 
+### useStyle
+
+```jsx
+import React from "react";
+import {useStyle} from "react-native-responsive-ui";
+
+export default ({ children }) =>  {
+  const styles = useStyle(cond => ({
+    container: {
+        flex: 1,
+        cond(
+            { orientation: "landscape" },
+            { flexDirection: "row" }
+        ),
+        cond(
+            { orientation: "portrait" },
+            { flexDirection: "column" }
+        ),
+    }
+  }));
+
+  return <View style={styles.container} />;
+};
+```
+
+or without hooks: 
+
+
+```jsx
+import React from "react";
+import {getStyle} from "react-native-responsive-ui";
+
+export default ({ children }) =>  {
+  const styles = getStyle(dimensions.get("window"), cond => ({
+    container: {
+        flex: 1,
+        cond(
+            { orientation: "landscape" },
+            { flexDirection: "row" }
+        ),
+        cond(
+            { orientation: "portrait" },
+            { flexDirection: "column" }
+        ),
+    }
+  }));
+
+  return <View style={styles.container} />;
+};
+```
+
 ### useDimensions
 
 ```jsx

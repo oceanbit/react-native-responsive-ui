@@ -26,6 +26,7 @@ export const isInInterval = (
   (min === undefined || value >= min) && (max === undefined || value <= max);
 
 export const mediaQuery = (
+  dimensions: ScaledSize,
   {
     minWidth,
     maxWidth,
@@ -38,8 +39,7 @@ export const mediaQuery = (
     minPixelRatio,
     maxPixelRatio,
     condition
-  }: IMediaQuery,
-  dimensions: ScaledSize
+  }: IMediaQuery
 ): boolean => {
   const { width, height } = dimensions;
   const currentOrientation: Orientation =
@@ -61,7 +61,7 @@ interface MediaQueryProps extends IMediaQuery {
 
 export default ({ children, ...props }: MediaQueryProps) => {
   const dimensions = useDimensions();
-  const val = mediaQuery(props, dimensions);
+  const val = mediaQuery(dimensions, props);
   if (val) {
     return children;
   }
