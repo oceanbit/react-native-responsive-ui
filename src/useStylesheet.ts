@@ -30,5 +30,3 @@ export const useStylesheet = <T extends {}>(styles: MediaQueryStyle<T>[]) => {
   const dimensions = useDimensions();
   return getStylesheet(dimensions, styles);
 };
-
-export default useStylesheet;
