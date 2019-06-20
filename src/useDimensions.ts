@@ -10,9 +10,7 @@ export default () => {
     window: { width, height, scale, fontScale }
   }: {
     window: ScaledSize;
-  }) => {
-    setDimensions({ width, height, scale, fontScale });
-  };
+  }) => setDimensions({ width, height, scale, fontScale });
 
   useEffect(() => {
     Dimensions.addEventListener("change", onChange);
