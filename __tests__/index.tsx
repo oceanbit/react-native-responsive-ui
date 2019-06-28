@@ -1,7 +1,7 @@
 import { View } from "react-native";
 import React from "react";
 import renderer from "react-test-renderer";
-import { MediaQuery } from "../src";
+import { MediaQuery, mediaQuery } from "../src";
 
 it("renders MediaQuery", () => {
   const tree = renderer
@@ -15,4 +15,16 @@ it("renders MediaQuery", () => {
     .toJSON();
 
   expect(tree).toMatchSnapshot();
+});
+
+it("should return true for right media query", () => {
+  const result = mediaQuery({ minHeight: 500 }, 200, 700);
+
+  expect(result).toBeTruthy();
+});
+
+it("should return true for false media query", () => {
+  const result = mediaQuery({ minHeight: 500 }, 200, 300);
+
+  expect(result).toBeFalsy();
 });

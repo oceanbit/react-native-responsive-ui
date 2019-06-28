@@ -12,6 +12,7 @@
   "scripts": {
     "prepare": "bob build",
     "lint": "eslint src/**/* __tests__/**/*.ts{,x}",
+    "lint-fix": "eslint --fix src/**/* __tests__/**/*.ts{,x}",
     "test": "jest",
     "tsc": "tsc --noEmit"
   },
