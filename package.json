@@ -11,7 +11,7 @@
   "types": "dist/typescript/src/index.d.ts",
   "scripts": {
     "prepare": "bob build",
-    "lint": "eslint src/**/* __tests__/**/*",
+    "lint": "eslint src/**/* __tests__/**/*.ts{,x}",
     "test": "jest",
     "tsc": "tsc --noEmit"
   },
