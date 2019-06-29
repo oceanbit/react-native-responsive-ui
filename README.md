@@ -3,7 +3,6 @@
 [![CircleCI](https://circleci.com/gh/wcandillon/react-native-responsive-ui.svg?style=svg)](https://circleci.com/gh/wcandillon/react-native-responsive-ui)
 [![npm version](https://badge.fury.io/js/react-native-responsive-ui.svg)](https://badge.fury.io/js/react-native-responsive-ui)
 
-
 Building responsive UIs in React Native.
 
 ![example](https://raw.githubusercontent.com/wcandillon/react-native-responsive-ui/4637085802323386110a6352929147d11e1ca83c/example/components/images/example.gif)
@@ -58,6 +57,56 @@ export default class Login extends Component {
 | platform       | string | Platform of the device.  See [Platform](https://facebook.github.io/react-native/docs/platform-specific-code.html#platform-module). |
 | condition      | boolean | Abritrary boolean value that must be true for the media query to pass. |
 
+### useStyle
+
+```jsx
+import React from "react";
+import {useStyle} from "react-native-responsive-ui";
+
+export default ({ children }) =>  {
+  const styles = useStyle(cond => ({
+    container: {
+        flex: 1,
+        cond(
+            { orientation: "landscape" },
+            { flexDirection: "row" }
+        ),
+        cond(
+            { orientation: "portrait" },
+            { flexDirection: "column" }
+        ),
+    }
+  }));
+
+  return <View style={styles.container} />;
+};
+```
+
+or without hooks: 
+
+
+```jsx
+import React from "react";
+import {getStyle} from "react-native-responsive-ui";
+
+export default ({ children }) =>  {
+  const styles = getStyle(dimensions.get("window"), cond => ({
+    container: {
+        flex: 1,
+        ...cond(
+            { orientation: "landscape" },
+            { flexDirection: "row" }
+        ),
+        ...cond(
+            { orientation: "portrait" },
+            { flexDirection: "column" }
+        ),
+    }
+  }));
+
+  return <View style={styles.container} />;
+};
+```
 
 ### useDimensions
 
@@ -70,90 +119,4 @@ export default ({ children }) =>  {
   console.log(`New window dimensions: ${width}x${height}`);
   return children;
 };
-```
-
-### useStylesheet
-
-```jsx
-import React from "react";
-import {useStylesheet} from "react-native-responsive-ui";
-
-export default class Buttons extends ResponsiveComponent {
-    render() {
-        const style = useStylesheet(staticStyle)
-        return <View style={style.btns}>
-            <Button label="Login" primary style={style.btn} />
-            <Button label="Sign Up" style={style.btn} />
-        </View>;
-    }
-}
-
-const staticStyle = [
-  {
-      query: { orientation: "landscape" },
-      style: {
-          btns: {
-              flexDirection: "row"
-          },
-          btn: {
-              flex: 1
-          }
-      }
-  },
-  {
-      query: { orientation: "portrait" },
-      style: {
-          btns: {
-              alignSelf: "stretch"
-          },
-          btn: {
-              flex: 0
-          }
-      }
-  }
-];
-```
-
-### Media Query
-
-`mediaQuery()` evaluates a media query and return true or false.
-See example below.
-
-```jsx
-import {mediaQuery, useDimensions} from "react-native-responsive-ui";
-
-const {width, height} = useDimensions();
-mediaQuery({ orientation: "portrait", minHeight: 450 }, width, height)
-```
-
-### ResponsiveComponent
-
-`ResponsiveComponents` extends `React.Component` and add the window dimensions to the state of the component.
-
-```jsx
-import React from "react";
-import {ResponsiveComponent} from "react-native-responsive-ui";
-
-export default class Debug extends ResponsiveComponent {
-    render() {
-        const {width, height} = this.state.window;
-        console.log(`New window dimensions: ${width}x${height}`);
-        return null;
-    }
-}
-```
-
-### getStyleSheet
-
-```jsx
-import React from "react";
-import {ResponsiveComponent, getStyleSheet} from "react-native-responsive-ui";
-
-export default class Debug extends ResponsiveComponent {
-    render() {
-        const {width, height} = this.state.window;
-        const style = getStyleSheet({width, height})
-        return <View style={style.container} />
-    }
-}
 ```

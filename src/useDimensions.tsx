@@ -6,11 +6,8 @@ const dims = Dimensions.get("window");
 export default () => {
   const [dimensions, setDimensions] = useState(dims);
 
-  const onChange = ({
-    window: { width, height, scale, fontScale }
-  }: {
-    window: ScaledSize;
-  }) => setDimensions({ width, height, scale, fontScale });
+  const onChange = ({ window }: { window: ScaledSize }) =>
+    setDimensions(window);
 
   useEffect(() => {
     Dimensions.addEventListener("change", onChange);
