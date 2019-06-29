@@ -29,18 +29,26 @@ it("should return true for false media query", () => {
   expect(result).toBeFalsy();
 });
 
+const container = { backgroundColor: "red" };
+
 it("should return a stylesheet for getStyleSheet", () => {
   const result = getStylesheet({ width: 200, height: 700 }, [
-    { query: { minHeight: 500 }, style: [{ color: "red" }] }
+    {
+      query: { minHeight: 500 },
+      style: { container }
+    }
   ]);
 
-  expect(result).toEqual(expect.arrayContaining([{ color: "red" }]));
+  expect(result).toEqual({ container });
 });
 
 it("should return a stylesheet for getStyleSheet", () => {
   const result = getStylesheet({ width: 200, height: 300 }, [
-    { query: { minHeight: 500 }, style: [{ color: "red" }] }
+    {
+      query: { minHeight: 500 },
+      style: { container }
+    }
   ]);
 
-  expect(result).toEqual(expect.arrayContaining([]));
+  expect(result).toEqual({});
 });
