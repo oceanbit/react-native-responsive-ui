@@ -30,25 +30,21 @@ it("should return true for false media query", () => {
 });
 
 const container = { backgroundColor: "red" };
+const mediaQueryStyle = [
+  {
+    query: { minHeight: 500 },
+    style: { container }
+  }
+];
 
 it("should return a stylesheet for getStyleSheet", () => {
-  const result = getStylesheet({ width: 200, height: 700 }, [
-    {
-      query: { minHeight: 500 },
-      style: { container }
-    }
-  ]);
+  const result = getStylesheet({ width: 200, height: 700 }, mediaQueryStyle);
 
   expect(result).toEqual({ container });
 });
 
 it("should return a stylesheet for getStyleSheet", () => {
-  const result = getStylesheet({ width: 200, height: 300 }, [
-    {
-      query: { minHeight: 500 },
-      style: { container }
-    }
-  ]);
+  const result = getStylesheet({ width: 200, height: 300 }, mediaQueryStyle);
 
   expect(result).toEqual({});
 });
