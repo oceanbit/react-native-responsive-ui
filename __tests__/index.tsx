@@ -17,14 +17,16 @@ it("renders MediaQuery", () => {
   expect(tree).toMatchSnapshot();
 });
 
+const height = { minHeight: 500 };
+
 it("should return true for right media query", () => {
-  const result = mediaQuery({ minHeight: 500 }, 200, 700);
+  const result = mediaQuery(height, 200, 700);
 
   expect(result).toBeTruthy();
 });
 
 it("should return true for false media query", () => {
-  const result = mediaQuery({ minHeight: 500 }, 200, 300);
+  const result = mediaQuery(height, 200, 300);
 
   expect(result).toBeFalsy();
 });
