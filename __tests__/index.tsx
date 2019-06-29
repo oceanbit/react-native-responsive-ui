@@ -1,7 +1,7 @@
 import { View } from "react-native";
 import React from "react";
 import renderer from "react-test-renderer";
-import { MediaQuery, mediaQuery } from "../src";
+import { MediaQuery, mediaQuery, getStylesheet } from "../src";
 
 it("renders MediaQuery", () => {
   const tree = renderer
@@ -27,4 +27,20 @@ it("should return true for false media query", () => {
   const result = mediaQuery({ minHeight: 500 }, 200, 300);
 
   expect(result).toBeFalsy();
+});
+
+it("should return a stylesheet for getStyleSheet", () => {
+  const result = getStylesheet({ width: 200, height: 700 }, [
+    { query: { minHeight: 500 }, style: [{ color: "red" }] }
+  ]);
+
+  expect(result).toEqual(expect.arrayContaining([{ color: "red" }]));
+});
+
+it("should return a stylesheet for getStyleSheet", () => {
+  const result = getStylesheet({ width: 200, height: 300 }, [
+    { query: { minHeight: 500 }, style: [{ color: "red" }] }
+  ]);
+
+  expect(result).toEqual(expect.arrayContaining([]));
 });
