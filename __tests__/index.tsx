@@ -40,7 +40,7 @@ const mediaQueryStyle = [
 it("should return a stylesheet for getStyleSheet", () => {
   const result = getStylesheet({ width: 200, height: 700 }, mediaQueryStyle);
 
-  expect(result).toEqual({ container });
+  expect(result).toEqual(mediaQueryStyle[0].style);
 });
 
 it("should return a stylesheet for getStyleSheet", () => {
