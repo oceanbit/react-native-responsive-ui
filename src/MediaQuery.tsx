@@ -59,7 +59,7 @@ interface MediaQueryProps extends IMediaQuery {
   children?: React.ReactNode;
 }
 
-export default ({ children, ...props }: MediaQueryProps) => {
+export default ({ children, ...props }: MediaQueryProps): any => {
   const { width, height } = useDimensions();
   const val = mediaQuery(props, width, height);
   if (val) {
