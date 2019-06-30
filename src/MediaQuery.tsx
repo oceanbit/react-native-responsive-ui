@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode } from "react";
 import { PixelRatio, Platform } from "react-native";
 import useDimensions from "./useDimensions";
 
