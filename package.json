@@ -11,8 +11,7 @@
   "types": "dist/typescript/src/index.d.ts",
   "scripts": {
     "prepare": "bob build",
-    "lint": "eslint src/**/* __tests__/**/*.ts{,x}",
-    "lint-fix": "eslint --fix src/**/* __tests__/**/*.ts{,x}",
+    "lint": "eslint src/**/* __tests__/**/*.tsx",
     "test": "jest",
     "tsc": "tsc --noEmit"
   },
@@ -40,8 +39,8 @@
     "@types/react": "^16.8.20",
     "@types/react-native": "^0.57.63",
     "babel-jest": "^24.8.0",
-    "eslint": "^5.16.0",
-    "eslint-config-react-native-wcandillon": "^1.2.2",
+    "eslint": "^6.0.1",
+    "eslint-config-react-native-wcandillon": "2.0.2",
     "jest": "^24.8.0",
     "react": "^16.8.6",
     "react-native": "^0.59.9",
