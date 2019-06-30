@@ -3,5 +3,9 @@
 exports[`renders MediaQuery 1`] = `
 <View>
   test
+  <Text>
+    test
+  </Text>
+  8
 </View>
 `;
