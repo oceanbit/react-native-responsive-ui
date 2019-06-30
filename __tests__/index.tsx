@@ -25,7 +25,7 @@ it("should return true for right media query", () => {
   expect(result).toBeTruthy();
 });
 
-it("should return true for false media query", () => {
+it("should return false for failed media query", () => {
   const result = mediaQuery(height, 200, 300);
 
   expect(result).toBeFalsy();
@@ -45,7 +45,7 @@ it("should return a stylesheet for getStyleSheet", () => {
   expect(result).toEqual(mediaQueryStyle[0].style);
 });
 
-it("should return a stylesheet for getStyleSheet", () => {
+it("should return a empty object for getStyleSheet", () => {
   const result = getStylesheet({ width: 200, height: 300 }, mediaQueryStyle);
 
   expect(result).toEqual({});
