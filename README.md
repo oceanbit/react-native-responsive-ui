@@ -152,7 +152,13 @@ import {ResponsiveComponent, getStyleSheet} from "react-native-responsive-ui";
 export default class Debug extends ResponsiveComponent {
     render() {
         const {width, height} = this.state.window;
-        const style = getStyleSheet({width, height})
+        const styles = [
+            {
+                query: { minHeight: 500 },
+                style: { container: { backgroundColor: "red" } }
+            }
+        ];
+        const style = getStyleSheet({width, height}, styles)
         return <View style={style.container} />
     }
 }

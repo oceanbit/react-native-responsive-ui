@@ -3,7 +3,7 @@ import useDimensions from "./useDimensions";
 
 type Orientation = "landscape" | "portrait";
 
-export interface IMediaQuery {
+export interface MediaQuery {
   minHeight?: number;
   maxHeight?: number;
   minWidth?: number;
@@ -37,7 +37,7 @@ export const mediaQuery = (
     minPixelRatio,
     maxPixelRatio,
     condition
-  }: IMediaQuery,
+  }: MediaQuery,
   width: number,
   height: number
 ): boolean => {
@@ -54,7 +54,7 @@ export const mediaQuery = (
   );
 };
 
-interface MediaQueryProps extends IMediaQuery {
+interface MediaQueryProps extends MediaQuery {
   children?: any;
 }
 
