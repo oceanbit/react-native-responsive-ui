@@ -56,10 +56,10 @@ export const mediaQuery = (
 };
 
 interface MediaQueryProps extends IMediaQuery {
-  children?: React.ReactNode;
+  children?: any;
 }
 
-export default ({ children, ...props }: MediaQueryProps): any => {
+export default ({ children, ...props }: MediaQueryProps) => {
   const { width, height } = useDimensions();
   const val = mediaQuery(props, width, height);
   if (val) {
