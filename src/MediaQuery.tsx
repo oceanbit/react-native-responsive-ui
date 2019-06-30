@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import { PixelRatio, Platform } from "react-native";
 import useDimensions from "./useDimensions";
 
@@ -55,10 +56,10 @@ export const mediaQuery = (
 };
 
 interface MediaQueryProps extends MediaQuery {
-  children?: any;
+  children?: ReactNode;
 }
 
-export default ({ children, ...props }: MediaQueryProps) => {
+export default ({ children, ...props }: MediaQueryProps): any => {
   const { width, height } = useDimensions();
   const val = mediaQuery(props, width, height);
   if (val) {
