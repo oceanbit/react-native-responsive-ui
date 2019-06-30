@@ -1,4 +1,3 @@
-import React from "react";
 import { PixelRatio, Platform } from "react-native";
 import useDimensions from "./useDimensions";
 
