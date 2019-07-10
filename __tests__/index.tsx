@@ -1,4 +1,4 @@
-import { View } from "react-native";
+import { View, Text } from "react-native";
 import React from "react";
 import renderer from "react-test-renderer";
 import { MediaQuery, mediaQuery, getStylesheet } from "../src";
@@ -9,6 +9,12 @@ it("renders MediaQuery", () => {
       <View>
         <MediaQuery minHeight={450} orientation="portrait">
           test
+        </MediaQuery>
+        <MediaQuery minHeight={450} orientation="portrait">
+          <Text>test</Text>
+        </MediaQuery>
+        <MediaQuery minHeight={450} orientation="portrait">
+          {3 + 5}
         </MediaQuery>
       </View>
     )
