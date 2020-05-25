@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
 import { Dimensions, ScaledSize } from "react-native";
 
-const dims = Dimensions.get("window");
-
 export default () => {
-  const [dimensions, setDimensions] = useState(dims);
+  const [dimensions, setDimensions] = useState(Dimensions.get("window"));
 
   const onChange = ({
     window: { width, height, scale, fontScale }
