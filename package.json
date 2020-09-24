@@ -8,7 +8,7 @@
   "license": "MIT",
   "private": false,
   "react-native": "src/index.ts",
-  "types": "dist/typescript/src/index.d.ts",
+  "types": "dist/typescript/index.d.ts",
   "scripts": {
     "prepare": "bob build",
     "lint": "eslint src/**/* __tests__/**/*.tsx",
