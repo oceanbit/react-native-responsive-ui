@@ -48,7 +48,6 @@
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^11.0.0",
-    "@react-native-community/eslint-config": "^2.0.0",
     "@release-it/conventional-changelog": "^2.0.0",
     "@types/jest": "^26.0.0",
     "@types/lodash": "^4.14.168",
@@ -103,10 +102,6 @@
       }
     }
   },
-  "eslintIgnore": [
-    "node_modules/",
-    "lib/"
-  ],
   "react-native-builder-bob": {
     "source": "src",
     "output": "lib",
