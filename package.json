@@ -77,9 +77,11 @@
   },
   "jest": {
     "preset": "react-native",
+    "setupFilesAfterEnv": ["./src/__tests__/setup.ts"],
     "modulePathIgnorePatterns": [
       "<rootDir>/example/node_modules",
-      "<rootDir>/lib/"
+      "<rootDir>/lib/",
+      "<rootDir>/src/__tests__/setup.ts"
     ]
   },
   "commitlint": {
