@@ -1,5 +1,5 @@
-import React from "react";
 import { PixelRatio, Platform } from "react-native";
+
 import useDimensions from "./useDimensions";
 
 type Orientation = "landscape" | "portrait";
@@ -37,7 +37,7 @@ export const mediaQuery = (
     platform,
     minPixelRatio,
     maxPixelRatio,
-    condition
+    condition,
   }: MediaQuery,
   width: number,
   height: number
@@ -59,7 +59,10 @@ interface MediaQueryProps extends MediaQuery {
   children: React.ReactNode;
 }
 
-export default ({ children, ...props }: MediaQueryProps): React.ReactNode => {
+const MediaQuery = ({
+  children,
+  ...props
+}: MediaQueryProps): React.ReactNode => {
   const { width, height } = useDimensions();
   const val = mediaQuery(props, width, height);
   if (val) {
@@ -67,3 +70,5 @@ export default ({ children, ...props }: MediaQueryProps): React.ReactNode => {
   }
   return null;
 };
+
+export default MediaQuery;
