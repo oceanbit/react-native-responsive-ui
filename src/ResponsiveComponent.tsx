@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { Dimensions, ScaledSize } from "react-native";
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface ResponsiveComponentProps {}
 
 interface ResponsiveComponentState {
@@ -12,8 +13,7 @@ export default abstract class ResponsiveComponent extends Component<
   ResponsiveComponentState
 > {
   state = {
-    // eslint-disable-next-line react/no-unused-state
-    window: Dimensions.get("window")
+    window: Dimensions.get("window"),
   };
 
   componentWillMount() {
