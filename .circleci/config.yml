@@ -71,7 +71,7 @@ jobs:
           path: coverage
           destination: coverage
 
-  build-package:
+  build:
     executor: default
     steps:
       - attach_project
@@ -93,6 +93,6 @@ workflows:
       - unit-tests:
           requires:
             - install-dependencies
-      - build-package:
+      - build:
           requires:
             - install-dependencies
