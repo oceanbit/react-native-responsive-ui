@@ -1,19 +1,11 @@
 import * as React from "react";
-import { StyleSheet, View, Text } from "react-native";
-import ResponsiveUi from "react-native-responsive-ui";
+import { StyleSheet, View } from "react-native";
+import { useStylesheet } from "react-native-responsive-ui";
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
+  useStylesheet([]);
 
-  React.useEffect(() => {
-    ResponsiveUi.multiply(3, 7).then(setResult);
-  }, []);
-
-  return (
-    <View style={styles.container}>
-      <Text>Result: {result}</Text>
-    </View>
-  );
+  return <View style={styles.container} />;
 }
 
 const styles = StyleSheet.create({
