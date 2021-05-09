@@ -1,4 +1,4 @@
-import * as _ from "lodash";
+import {merge as _merge, cloneDeep as _cloneDeep} from "lodash";
 import type { ViewStyle, TextStyle, ImageStyle } from "react-native";
 
 import { mediaQuery, MediaQuery } from "./MediaQuery";
@@ -17,10 +17,10 @@ export const getStylesheet = <T extends Record<string, unknown>>(
   const selectedStyles: NamedStyles<T>[] = [];
   styles.forEach((style) =>
     mediaQuery(style.query, width, height)
-      ? selectedStyles.push(_.cloneDeep(style.style))
+      ? selectedStyles.push(_cloneDeep(style.style))
       : undefined
   );
-  return _.merge.apply<null, NamedStyles<T>[], NamedStyles<T>>(
+  return _merge.apply<null, NamedStyles<T>[], NamedStyles<T>>(
     null,
     selectedStyles
   );
