@@ -143,11 +143,11 @@ export default class Debug extends ResponsiveComponent {
 }
 ```
 
-### getStyleSheet
+### getStylesheet
 
 ```jsx
 import React from "react";
-import {ResponsiveComponent, getStyleSheet} from "react-native-responsive-ui";
+import {ResponsiveComponent, getStylesheet} from "react-native-responsive-ui";
 
 export default class Debug extends ResponsiveComponent {
     render() {
@@ -158,7 +158,7 @@ export default class Debug extends ResponsiveComponent {
                 style: { container: { backgroundColor: "red" } }
             }
         ];
-        const style = getStyleSheet({width, height}, styles)
+        const style = getStylesheet({width, height}, styles)
         return <View style={style.container} />
     }
 }
