@@ -1,4 +1,4 @@
-import { PixelRatio, Platform } from "react-native";
+import { PixelRatio, Platform, PlatformOSType } from "react-native";
 
 import useDimensions from "./useDimensions";
 
@@ -15,7 +15,7 @@ export interface MediaQuery {
   maxPixelRatio?: number;
   orientation?: Orientation;
   condition?: boolean;
-  platform?: string;
+  platform?: PlatformOSType;
 }
 
 export const isInInterval = (
@@ -37,10 +37,10 @@ export const mediaQuery = (
     maxHeight,
     minAspectRatio,
     maxAspectRatio,
-    orientation,
-    platform,
     minPixelRatio,
     maxPixelRatio,
+    orientation,
+    platform,
     condition,
   } = query;
   const currentOrientation: Orientation =
