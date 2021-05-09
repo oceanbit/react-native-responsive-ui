@@ -26,7 +26,11 @@ export const isInInterval = (
   (min === undefined || value >= min) && (max === undefined || value <= max);
 
 export const mediaQuery = (
-  {
+  query: MediaQuery,
+  width: number,
+  height: number
+): boolean => {
+  const {
     minWidth,
     maxWidth,
     minHeight,
@@ -38,10 +42,7 @@ export const mediaQuery = (
     minPixelRatio,
     maxPixelRatio,
     condition,
-  }: MediaQuery,
-  width: number,
-  height: number
-): boolean => {
+  } = query;
   const currentOrientation: Orientation =
     width > height ? "landscape" : "portrait";
   return (

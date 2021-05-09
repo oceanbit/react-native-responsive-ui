@@ -20,7 +20,7 @@ jest.mock("react-native", () => {
     addEventListener: (eventName: string, onChange: mockChangeListener) => {
       eventListeners[eventName] = onChange;
     },
-    removeEventListener: (eventName: string, onChange: mockChangeListener) => {
+    removeEventListener: (eventName: string) => {
       delete eventListeners[eventName];
     },
     set: ({ height, width }: { height: number; width: number }) => {
