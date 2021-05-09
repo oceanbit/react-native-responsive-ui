@@ -1,5 +1,5 @@
 import React from "react";
-import { Dimensions, Text, View } from "react-native";
+import { Dimensions, PixelRatio, Text, View } from "react-native";
 import { render } from "@testing-library/react-native";
 
 import MediaQuery, { isInInterval, mediaQuery } from "../MediaQuery";
@@ -114,6 +114,34 @@ describe("mediaQuery", () => {
     const width = 200;
     const height = 100;
     const res = mediaQuery({ maxAspectRatio: 1 }, width, height);
+
+    expect(res).toBeFalsy();
+  });
+
+  test("minPixelRatio should be false if too low", () => {
+    Dimensions.set({ pixelRatio: 0 });
+    const res = mediaQuery({ minPixelRatio: 1 }, 0, 0);
+
+    expect(res).toBeFalsy();
+  });
+
+  test("minPixelRatio should be true if above", () => {
+    Dimensions.set({ pixelRatio: 2 });
+    const res = mediaQuery({ minPixelRatio: 1 }, 0, 0);
+
+    expect(res).toBeTruthy();
+  });
+
+  test("maxPixelRatio should be true if lower", () => {
+    Dimensions.set({ pixelRatio: 0 });
+    const res = mediaQuery({ maxPixelRatio: 1 }, 0, 0);
+
+    expect(res).toBeTruthy();
+  });
+
+  test("maxPixelRatio should be false if above", () => {
+    Dimensions.set({ pixelRatio: 2 });
+    const res = mediaQuery({ maxPixelRatio: 1 }, 0, 0);
 
     expect(res).toBeFalsy();
   });
