@@ -1,6 +1,6 @@
 {
   "name": "react-native-responsive-ui",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "description": "Responsive UIs for React Native",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
