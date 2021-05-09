@@ -1,0 +1,22 @@
+{
+  "name": "react-native-responsive-ui-example",
+  "displayName": "ResponsiveUi Example",
+  "expo": {
+    "name": "react-native-responsive-ui-example",
+    "slug": "react-native-responsive-ui-example",
+    "description": "Example app for react-native-responsive-ui",
+    "privacy": "public",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}

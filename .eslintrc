@@ -4,6 +4,14 @@
   },
   "extends": "react-native-wcandillon",
   "rules": {
-    
-  }
+
+  },
+  "ignorePatterns": [
+    "node_modules/",
+    "lib/",
+    "example/babel.config.js",
+    "example/metro.config.js",
+    "example/webpack.config.js",
+    "scripts/bootstrap.js"
+  ]
 }

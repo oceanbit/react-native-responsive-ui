@@ -1,5 +1,6 @@
-import React from "react";
-import { PixelRatio, Platform } from "react-native";
+import type * as React from "react";
+import { PixelRatio, Platform, PlatformOSType } from "react-native";
+
 import useDimensions from "./useDimensions";
 
 type Orientation = "landscape" | "portrait";
@@ -15,7 +16,7 @@ export interface MediaQuery {
   maxPixelRatio?: number;
   orientation?: Orientation;
   condition?: boolean;
-  platform?: string;
+  platform?: PlatformOSType;
 }
 
 export const isInInterval = (
@@ -26,22 +27,23 @@ export const isInInterval = (
   (min === undefined || value >= min) && (max === undefined || value <= max);
 
 export const mediaQuery = (
-  {
+  query: MediaQuery,
+  width: number,
+  height: number
+): boolean => {
+  const {
     minWidth,
     maxWidth,
     minHeight,
     maxHeight,
     minAspectRatio,
     maxAspectRatio,
-    orientation,
-    platform,
     minPixelRatio,
     maxPixelRatio,
-    condition
-  }: MediaQuery,
-  width: number,
-  height: number
-): boolean => {
+    orientation,
+    platform,
+    condition,
+  } = query;
   const currentOrientation: Orientation =
     width > height ? "landscape" : "portrait";
   return (
@@ -55,15 +57,13 @@ export const mediaQuery = (
   );
 };
 
-interface MediaQueryProps extends MediaQuery {
-  children: React.ReactNode;
-}
-
-export default ({ children, ...props }: MediaQueryProps): React.ReactNode => {
+const MediaQuery: React.FC<MediaQuery> = ({ children, ...props }) => {
   const { width, height } = useDimensions();
   const val = mediaQuery(props, width, height);
   if (val) {
-    return children;
+    return children as JSX.Element;
   }
   return null;
 };
+
+export default MediaQuery;

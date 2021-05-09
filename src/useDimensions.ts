@@ -3,11 +3,11 @@ import { Dimensions, ScaledSize } from "react-native";
 
 const dims = Dimensions.get("window");
 
-export default () => {
+const useDimensions = () => {
   const [dimensions, setDimensions] = useState(dims);
 
   const onChange = ({
-    window: { width, height, scale, fontScale }
+    window: { width, height, scale, fontScale },
   }: {
     window: ScaledSize;
   }) => setDimensions({ width, height, scale, fontScale });
@@ -19,3 +19,5 @@ export default () => {
 
   return dimensions;
 };
+
+export default useDimensions;
