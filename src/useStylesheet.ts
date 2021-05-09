@@ -1,4 +1,4 @@
-import {merge as _merge, cloneDeep as _cloneDeep} from "lodash";
+import { merge as _merge, cloneDeep as _cloneDeep } from "lodash-es";
 import type { ViewStyle, TextStyle, ImageStyle } from "react-native";
 
 import { mediaQuery, MediaQuery } from "./MediaQuery";
@@ -20,6 +20,7 @@ export const getStylesheet = <T extends Record<string, unknown>>(
       ? selectedStyles.push(_cloneDeep(style.style))
       : undefined
   );
+  // eslint-disable-next-line prefer-spread
   return _merge.apply<null, NamedStyles<T>[], NamedStyles<T>>(
     null,
     selectedStyles
