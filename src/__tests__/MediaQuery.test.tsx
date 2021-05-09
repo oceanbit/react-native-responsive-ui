@@ -1,5 +1,5 @@
 import React from "react";
-import { Dimensions, PixelRatio, Text, View } from "react-native";
+import { Dimensions, Platform } from "react-native";
 import { render } from "@testing-library/react-native";
 
 import MediaQuery, { isInInterval, mediaQuery } from "../MediaQuery";
@@ -142,6 +142,64 @@ describe("mediaQuery", () => {
   test("maxPixelRatio should be false if above", () => {
     Dimensions.set({ pixelRatio: 2 });
     const res = mediaQuery({ maxPixelRatio: 1 }, 0, 0);
+
+    expect(res).toBeFalsy();
+  });
+
+  test("orientation landscape should fail when expected", () => {
+    const width = 100;
+    const height = 200;
+    const res = mediaQuery({ orientation: "landscape" }, width, height);
+
+    expect(res).toBeFalsy();
+  });
+
+  test("orientation landscape should pass when expected", () => {
+    const width = 200;
+    const height = 100;
+    const res = mediaQuery({ orientation: "landscape" }, width, height);
+
+    expect(res).toBeTruthy();
+  });
+
+  test("orientation portrait should fail when expected", () => {
+    const width = 200;
+    const height = 100;
+    const res = mediaQuery({ orientation: "portrait" }, width, height);
+
+    expect(res).toBeFalsy();
+  });
+
+  test("orientation portrait should pass when expected", () => {
+    const width = 100;
+    const height = 200;
+    const res = mediaQuery({ orientation: "portrait" }, width, height);
+
+    expect(res).toBeTruthy();
+  });
+
+  test("platform should match", () => {
+    Platform.OS = "web";
+    const res = mediaQuery({ platform: "web" }, 0, 0);
+
+    expect(res).toBeTruthy();
+  });
+
+  test("platform should fail", () => {
+    Platform.OS = "ios";
+    const res = mediaQuery({ platform: "web" }, 0, 0);
+
+    expect(res).toBeFalsy();
+  });
+
+  test("condition should match", () => {
+    const res = mediaQuery({ condition: true }, 0, 0);
+
+    expect(res).toBeTruthy();
+  });
+
+  test("condition should fail", () => {
+    const res = mediaQuery({ condition: false }, 0, 0);
 
     expect(res).toBeFalsy();
   });
