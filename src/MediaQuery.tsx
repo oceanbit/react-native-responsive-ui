@@ -1,3 +1,4 @@
+import type * as React from "react";
 import { PixelRatio, Platform, PlatformOSType } from "react-native";
 
 import useDimensions from "./useDimensions";
@@ -56,18 +57,11 @@ export const mediaQuery = (
   );
 };
 
-interface MediaQueryProps extends MediaQuery {
-  children: React.ReactNode;
-}
-
-const MediaQuery = ({
-  children,
-  ...props
-}: MediaQueryProps): React.ReactNode => {
+const MediaQuery: React.FC<MediaQuery> = ({ children, ...props }) => {
   const { width, height } = useDimensions();
   const val = mediaQuery(props, width, height);
   if (val) {
-    return children;
+    return children as JSX.Element;
   }
   return null;
 };

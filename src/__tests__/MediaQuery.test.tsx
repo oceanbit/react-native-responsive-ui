@@ -1,19 +1,16 @@
 import React from "react";
-import { Dimensions, Platform } from "react-native";
+import { Dimensions, Platform, Text } from "react-native";
 import { render } from "@testing-library/react-native";
 
 import MediaQuery, { isInInterval, mediaQuery } from "../MediaQuery";
-//
-// const DimensionsComp = () => {
-//   const { width, height } = useDimensions();
-//
-//   return (
-//     <View>
-//       <Text>Width: {width}</Text>
-//       <Text>Height: {height}</Text>
-//     </View>
-//   );
-// };
+
+const MediaQueryTestComp = ({ minHeight }: { minHeight: number }) => {
+  return (
+    <MediaQuery minHeight={minHeight}>
+      <Text>I am visible</Text>
+    </MediaQuery>
+  );
+};
 
 test("isInInterval", () => {
   expect(isInInterval(5, 1, 10)).toBeTruthy();
@@ -205,14 +202,32 @@ describe("mediaQuery", () => {
   });
 });
 
-// test("useDimensions should handle changes in dimention", async () => {
-//   const { queryByText } = render(<DimensionsComp />);
-//
-//   expect(queryByText("Width: 100")).toBeTruthy();
-//   expect(queryByText("Height: 100")).toBeTruthy();
-//
-//   Dimensions.set({ height: 120, width: 120 });
-//
-//   expect(queryByText("Width: 120")).toBeTruthy();
-//   expect(queryByText("Height: 120")).toBeTruthy();
-// });
+describe("MediaQuery Comp", () => {
+  test("should render when constraints set", async () => {
+    const { queryByText } = render(<MediaQueryTestComp minHeight={50} />);
+
+    Dimensions.set({ height: 100, width: 100 });
+
+    expect(queryByText("I am visible")).toBeTruthy();
+  });
+
+  test("should not render when constraints not set", async () => {
+    const { queryByText } = render(<MediaQueryTestComp minHeight={150} />);
+
+    Dimensions.set({ height: 100, width: 100 });
+
+    expect(queryByText("I am visible")).toBeFalsy();
+  });
+
+  test("should re-render when constraints updated", async () => {
+    const { queryByText } = render(<MediaQueryTestComp minHeight={150} />);
+
+    Dimensions.set({ height: 100, width: 100 });
+
+    expect(queryByText("I am visible")).toBeFalsy();
+
+    Dimensions.set({ height: 200, width: 200 });
+
+    expect(queryByText("I am visible")).toBeTruthy();
+  });
+});
