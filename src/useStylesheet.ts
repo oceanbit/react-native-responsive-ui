@@ -17,7 +17,7 @@ export const getStylesheet = <T extends Record<string, unknown>>(
   const selectedStyles: NamedStyles<T>[] = [];
   styles.forEach((style) =>
     mediaQuery(style.query, width, height)
-      ? selectedStyles.push(style.style)
+      ? selectedStyles.push(_.cloneDeep(style.style))
       : undefined
   );
   return _.merge.apply<null, NamedStyles<T>[], NamedStyles<T>>(
